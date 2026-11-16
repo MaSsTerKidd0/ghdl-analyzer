@@ -33,6 +33,16 @@ jobs:
       - run: cargo clippy --all-targets -- -D warnings
       - run: cargo test
       - run: cargo build --release
+      # Test builds you can download from the run's "Artifacts" section
+      # (no release needed). Kept for 14 days.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ghdl-analyzer-${{ runner.os }}
+          path: |
+            target/release/ghdl-analyzer
+            target/release/ghdl-analyzer.exe
+          if-no-files-found: error
+          retention-days: 14
 
   # Regenerate the example waveforms with a real GHDL release and run the tests on
   # them, so a change in GHDL's output formats is caught early.
