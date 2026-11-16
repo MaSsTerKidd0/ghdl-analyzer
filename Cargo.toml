@@ -1,0 +1,18 @@
+[package]
+name = "ghdl-analyzer"
+version = "0.1.0"
+edition = "2024"
+description = "Waveform viewer / logic analyzer for GHDL VHDL simulations (GHW, FST, VCD)"
+repository = "https://github.com/MaSsTerKidd0/ghdl-analyzer"
+keywords = ["vhdl", "ghdl", "waveform", "vcd", "logic-analyzer"]
+categories = ["development-tools", "simulation"]
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+eframe = { version = "0.37", features = ["glow"] }
+egui = "0.37"
+egui_extras = "0.37.0"
+rfd = "0.18.0"
+thiserror = "2.0.21"
+wellen = "0.25.7"

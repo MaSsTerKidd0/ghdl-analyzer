@@ -1,0 +1,87 @@
+$date
+  Hand-written sample for ghdl-analyzer
+$end
+$version
+  ghdl-analyzer example
+$end
+$timescale
+  1 ns
+$end
+$scope module counter_tb $end
+$var wire 1 ! clk $end
+$var wire 1 " rst $end
+$var wire 1 # enable $end
+$var wire 8 $ count [7:0] $end
+$var wire 1 % data_bus_oe $end
+$scope module dut $end
+$var wire 4 & state [3:0] $end
+$var wire 1 ' carry $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+1"
+0#
+bxxxxxxxx $
+z%
+bxxxx &
+u'
+$end
+#5
+1!
+#10
+0!
+0"
+b00000000 $
+b0000 &
+0'
+#15
+1!
+#20
+0!
+1#
+b0001 &
+#25
+1!
+b00000001 $
+#30
+0!
+1%
+#35
+1!
+b00000010 $
+#40
+0!
+#45
+1!
+b00000011 $
+b0010 &
+#50
+0!
+0%
+#55
+1!
+b00000100 $
+#60
+0!
+x%
+#65
+1!
+b00000101 $
+0#
+b0011 &
+#70
+0!
+z%
+#75
+1!
+#80
+0!
+1'
+b0000 &
+#85
+1!
+#90
+0!
