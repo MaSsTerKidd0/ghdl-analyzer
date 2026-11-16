@@ -2,6 +2,7 @@
 name = "ghdl-analyzer"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
 description = "Waveform viewer / logic analyzer for GHDL VHDL simulations (GHW, FST, VCD)"
 repository = "https://github.com/MaSsTerKidd0/ghdl-analyzer"
 keywords = ["vhdl", "ghdl", "waveform", "vcd", "logic-analyzer"]

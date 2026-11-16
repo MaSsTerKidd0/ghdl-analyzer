@@ -33,3 +33,29 @@ jobs:
       - run: cargo clippy --all-targets -- -D warnings
       - run: cargo test
       - run: cargo build --release
+
+  # Regenerate the example waveforms with a real GHDL release and run the tests on
+  # them, so a change in GHDL's output formats is caught early.
+  ghdl:
+    name: GHDL ${{ matrix.ghdl }} compatibility
+    strategy:
+      fail-fast: false
+      matrix:
+        ghdl: ["6.0.0"]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Install GHDL ${{ matrix.ghdl }}
+        run: |
+          url="https://github.com/ghdl/ghdl/releases/download/v${{ matrix.ghdl }}/ghdl-mcode-${{ matrix.ghdl }}-ubuntu24.04-x86_64.tar.gz"
+          mkdir -p "$RUNNER_TEMP/ghdl"
+          curl -sSfL "$url" | tar xz -C "$RUNNER_TEMP/ghdl" --strip-components=1
+          echo "$RUNNER_TEMP/ghdl/bin" >> "$GITHUB_PATH"
+      - run: ghdl --version
+      - name: Regenerate example waveforms
+        run: examples/vhdl/generate.sh
+      - name: Show changes in the generated files (informational)
+        run: git diff --stat -- examples/
+      - run: cargo test

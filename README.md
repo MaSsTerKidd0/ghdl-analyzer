@@ -60,8 +60,16 @@ Which format should I use?
 See GHDL's [simulation options](https://ghdl.github.io/ghdl/using/Simulation.html) for details,
 for example `--read-wave-opt` to dump only some signals.
 
-Note: some GHDL versions crash when several dump options are given in the same run; use one
-format per run.
+Note: GHDL (checked up to 6.0.0) can crash when several dump options are given in the same
+run; use one format per run.
+
+GHDL Analyzer is tested against waveforms produced by **GHDL 6.0.0**; CI regenerates the
+examples with that release on every push.
+
+## Download
+
+Prebuilt binaries for Linux, Windows and macOS are on the
+[Releases page](https://github.com/MaSsTerKidd0/ghdl-analyzer/releases).
 
 ## Building
 
@@ -170,6 +178,10 @@ cargo fmt --check
 ```
 
 CI runs these on Linux, Windows and macOS.
+
+## License
+
+MIT, see [LICENSE](LICENSE). GHDL itself is a separate project under its own license (GPL-2.0).
 
 ## Acknowledgements
 

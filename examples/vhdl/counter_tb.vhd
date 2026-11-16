@@ -1,5 +1,5 @@
 -- Small testbench used to produce the sample .ghw / .fst / .vcd files.
--- Regenerate with: examples/vhdl/generate.sh  (needs GHDL installed)
+-- Regenerate with: examples/vhdl/generate.sh  (needs GHDL installed; tested with 6.0.0)
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
